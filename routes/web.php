@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth'], function(){
        Route::get('/categories/edit/{id}', 'Admin\CategoriesController@editCategory')
                 ->where('id', '\d+')
                 ->name('categories.edit');
-       Route::get('/categories/delete', 'Admin\CategoriesController@deleteCategory')->name('categories.dlete');
+       Route::post('/categories/edit/{id}', 'Admin\CategoriesController@editRequestCategory')
+           ->where('id', '\d+');
+       Route::delete('/categories/delete', 'Admin\CategoriesController@deleteCategory')->name('categories.delete');
    });
 });
