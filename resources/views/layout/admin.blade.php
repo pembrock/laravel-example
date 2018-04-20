@@ -108,5 +108,9 @@
         }
     });
 </script>
+
+<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
+
+@include('inc.messages')
 </body>
 </html>

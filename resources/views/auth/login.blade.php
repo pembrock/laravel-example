@@ -33,6 +33,9 @@
     <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
 </form>
+<script src="/js/jquery.js"></script>
 <script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
+
+@include('inc.messages')
 </body>
 </html>

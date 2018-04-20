@@ -30,16 +30,17 @@ Route::group(['middleware' => 'auth'], function(){
    })->name('logout');
 
    //admin
-   Route::group(['middleware' => 'admin'], function () {
-       Route::get('/admin', 'Admin\AccountController@index')->name('admin');
+   Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+       Route::get('/', 'Admin\AccountController@index')->name('admin');
 
        Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
+
+       Route::post('/categories/add', 'Admin\CategoriesController@addRequestCategory');
        Route::get('/categories/add', 'Admin\CategoriesController@addCategory')->name('categories.add');
+
        Route::get('/categories/edit/{id}', 'Admin\CategoriesController@editCategory')
                 ->where('id', '\d+')
                 ->name('categories.edit');
-       Route::get('/categories/delete/{id}', 'Admin\CategoriesController@deleteCategory')
-                ->where('id', '\d+')
-                ->name('categories.dlete');
+       Route::get('/categories/delete', 'Admin\CategoriesController@deleteCategory')->name('categories.dlete');
    });
 });
