@@ -87,8 +87,8 @@ class CategoriesController extends Controller
     {
         if ($request->ajax()) {
             $id = (int) $request->input('id');
-            $objCategoru = new Category();
-            $objCategoru->where('id', $id)->delete();
+            $objCategory = new Category();
+            $objCategory->where('id', $id)->delete();
         }
     }
 }

@@ -1,26 +1,26 @@
 @extends('layout.admin')
 @section('content')
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <h1>Список категорий</h1>
+        <h1>Список статей</h1>
         <br>
-        <a href="{!! route('categories.add') !!}" class="btn btn-info">Добавить категорию</a>
+        <a href="{!! route('articles.add') !!}" class="btn btn-info">Добавить статью</a>
         <br>
         <br>
         <table class="table table-bordered">
             <tr>
                 <th>#</th>
                 <th>Наименование</th>
-                <th>Описание</th>
+                <th>Автор</th>
                 <th>Дата добавления</th>
                 <th>Действия</th>
             </tr>
-            @foreach($categories as $category)
+            @foreach($articles as $article)
                 <tr>
-                    <td>{{$category->id}}</td>
-                    <td>{{$category->title}}</td>
-                    <td>{!! $category->description !!}</td>
-                    <td>{{$category->created_at->format('d-m-Y H:i')}}</td>
-                    <td><a href="{!! route('categories.edit', ['id' => $category->id]) !!}">Редактировать</a> || <a href="javascript:;" class="delete" rel="{{ $category->id }}">Удалить</a></td>
+                    <td>{{$article->id}}</td>
+                    <td>{{$article->title}}</td>
+                    <td>{{ $article->author }}</td>
+                    <td>{{$article->created_at->format('d-m-Y H:i')}}</td>
+                    <td><a href="{!! route('articles.edit', ['id' => $article->id]) !!}">Редактировать</a> || <a href="javascript:;" class="delete" rel="{{ $article->id }}">Удалить</a></td>
                 </tr>
             @endforeach
         </table>
@@ -35,10 +35,10 @@
                    let id = $(this).attr('rel');
                    $.ajax({
                        type: "DELETE",
-                       url: "{!! route('categories.delete') !!}",
+                       url: "{!! route('articles.delete') !!}",
                        data: {_token: "{{csrf_token()}}", id: id},
                        complete: function() {
-                           alert("Категория удалена");
+                           alert("Статья удалена");
                            location.reload();
                        }
                    });
