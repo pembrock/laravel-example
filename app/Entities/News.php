@@ -3,6 +3,7 @@
 namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Filesystem\Filesystem;
 
 class News extends Model
 {
@@ -21,4 +22,13 @@ class News extends Model
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * Удаление изображения новости
+     * @param string $path
+     */
+    static public function deleteImage(string $path)
+    {
+        app(Filesystem::class)->delete(public_path($path));
+    }
 }

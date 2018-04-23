@@ -3,52 +3,108 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Entities\Article;
-use App\Entities\Category;
-use App\Entities\CategoryArticle;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ArticlesController extends Controller
 {
+    public $uploadPath = 'upload\articles';
     public function index()
     {
-        $objArticle = new Article();
-        $articles = $objArticle->get();
-        return view('admin.articles.index', ['articles' => $articles]);
-    }
+        //$objArticles = new Article();
+        $articles = Article::orderBy('id', 'desc')->get();
 
-    public function addArticle()
-    {
-        $objCategories = new Category();
-        $categories = $objCategories->get();
-        return view('admin.articles.add', ['categories' => $categories]);
+        return view('admin.articles.index', ['articles' => $articles]);
     }
 
     public function addRequestArticle(ArticleRequest $request)
     {
         $objArticle = new Article();
-        $objCategoryArticle = new CategoryArticle();
-
-        $full_text = $request->input('full_text') ?? null;
+        $file = $request->file('image');
+        $path = $file->move($this->uploadPath,$file->getClientOriginalName());
+        $path = $path ? $path->getPathname() : NULL;
         $objArticle = $objArticle->create([
-            'title' =>  $request->input('title'),
-            'author' =>  $request->input('author'),
-            'short_text' =>  $request->input('short_text'),
-            'full_text' =>  $full_text,
-            'title' =>  $request->input('title'),
+            'header' => $request->input('header'),
+            'description' => $request->input('description'),
+            'text' => $request->input('text'),
+            'img_path' => $path
         ]);
+
         if ($objArticle) {
-            foreach ($request->input('categories') as $category_id) {
-                $category_id = (int)$category_id;
-                $objCategoryArticle = $objCategoryArticle->create([
-                    'category_id' => $category_id,
-                    'article_id'  => $objArticle->id
-                ]);
+            return redirect()->route('articles.edit', $objArticle->id)->with('success', 'Запись успешно добавлена');
+        }
+
+        return back()->with('error', 'Запись не добавлена');
+    }
+
+    public function addArticle()
+    {
+
+        return view('admin.articles.add');
+    }
+
+    public function editArticle(int $id)
+    {
+        $article = Article::find($id);
+
+        if(!$article) {
+            return redirect()->route('articles')->with('error', 'Страница не найдена');
+        }
+        Storage::delete($article->img_path);
+        return view('admin.articles.edit', ['article' => $article]);
+    }
+
+    public function editRequestArticle(ArticleRequest $request, int $id)
+    {
+        $isPublished = boolval($request->has('is_published'));
+
+        if ($request->file('image')) {
+            $article = Article::find($id);
+            if (!is_null($article->img_path)) {
+                Article::deleteImage($article->img_path);
             }
 
-            return redirect()->route('articles')->with('success', 'Статья успешно добавлена');
+            $file = $request->file('image');
+            $path = $file->move($this->uploadPath,$file->getClientOriginalName());
+
         }
-        return back()->with('error', 'Статья не добавлена');
+        $path = isset($path) && !empty($path) ? $path->getPathname() : NULL;
+        if (Article::where('id', $id)->update([
+            'header' => $request->input('header'),
+            'description' => $request->input('description'),
+            'text' => $request->input('text'),
+            'is_published' => $isPublished,
+            'img_path' => $path
+        ])) {
+            return redirect()->route('articles')->with('success', 'Запись обновлена');
+        }
+
+        return back()->with('error', 'Не удалось обновить запись');
+    }
+
+    public function deleteArticle (Request $request)
+    {
+        if ($request->ajax()) {
+            $id = (int) $request->input('id');
+            $objArticle = Article::find($id);
+            if (!is_null($objArticle->img_path)) {
+                Article::deleteImage($objArticle->img_path);
+            }
+
+            Article::where('id',$id)->delete();
+        }
+    }
+
+    public function deleteArticleImage (Request $request)
+    {
+        if ($request->ajax()) {
+            $id = (int) $request->input('id');
+            $objArticle = Article::find($id);
+            Article::deleteImage($objArticle->img_path);
+            $objArticle->img_path = NULL;
+            $objArticle->save();
+        }
     }
 }

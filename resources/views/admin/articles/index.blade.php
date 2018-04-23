@@ -9,18 +9,26 @@
         <table class="table table-bordered">
             <tr>
                 <th>#</th>
-                <th>Наименование</th>
-                <th>Автор</th>
+                <th>Заголовок</th>
+                <th>Описание</th>
                 <th>Дата добавления</th>
+                <th>Видимость</th>
                 <th>Действия</th>
             </tr>
-            @foreach($articles as $article)
+            @foreach($articles as $item)
                 <tr>
-                    <td>{{$article->id}}</td>
-                    <td>{{$article->title}}</td>
-                    <td>{{ $article->author }}</td>
-                    <td>{{$article->created_at->format('d-m-Y H:i')}}</td>
-                    <td><a href="{!! route('articles.edit', ['id' => $article->id]) !!}">Редактировать</a> || <a href="javascript:;" class="delete" rel="{{ $article->id }}">Удалить</a></td>
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->header}}</td>
+                    <td>{!! $item->description !!}</td>
+                    <td>{{$item->created_at->format('d-m-Y H:i')}}</td>
+                    <td>
+                        @if ($item->is_published == 1)
+                            Опубликовано
+                        @else
+                            Не опубликовано
+                        @endif
+                    </td>
+                    <td><a href="{!! route('articles.edit', ['id' => $item->id]) !!}">Редактировать</a> || <a href="javascript:;" class="delete" rel="{{ $item->id }}">Удалить</a></td>
                 </tr>
             @endforeach
         </table>
@@ -30,24 +38,24 @@
 @section('js')
     <script type="text/javascript">
         $(function(){
-           $('.delete').on('click', function(){
-               if (confirm("Вы действительно хотите удалит эту запись?")) {
-                   let id = $(this).attr('rel');
-                   $.ajax({
-                       type: "DELETE",
-                       url: "{!! route('articles.delete') !!}",
-                       data: {_token: "{{csrf_token()}}", id: id},
-                       complete: function() {
-                           alert("Статья удалена");
-                           location.reload();
-                       }
-                   });
-               } else {
-                   alertify.error("Действие отменено пользователем");
-               }
+            $('.delete').on('click', function(){
+                if (confirm("Вы действительно хотите удалит эту запись?")) {
+                    let id = $(this).attr('rel');
+                    $.ajax({
+                        type: "DELETE",
+                        url: "{!! route('articles.delete') !!}",
+                        data: {_token: "{{csrf_token()}}", id: id},
+                        complete: function() {
+                            alert("Статья удалена");
+                            location.reload();
+                        }
+                    });
+                } else {
+                    alertify.error("Действие отменено пользователем");
+                }
 
-               return false;
-           });
+                return false;
+            });
         });
     </script>
 @stop

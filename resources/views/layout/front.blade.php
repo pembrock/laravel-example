@@ -80,22 +80,15 @@
     </div>
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="{{ route('news') }}">Новости</a>
+            <a class="p-2 text-muted" href="{{ route('front.news') }}">Новости</a>
             <a class="p-2 text-muted" href="{{ route('articlesList') }}">Статьи</a>
-            <a class="p-2 text-muted" href="{{ route('shop') }}">Магазин</a>
-            <a class="p-2 text-muted" href="">На заказ</a>
-            <a class="p-2 text-muted" href="{{ route('gallery') }}">Галерея</a>
-            <a class="p-2 text-muted" href="{{ route('contacts') }}">Контакты</a>
+            <a class="p-2 text-muted" href="javasript:;">Магазин</a>
+            <a class="p-2 text-muted" href="javasript:;">На заказ</a>
+            <a class="p-2 text-muted" href="javasript:;">Галерея</a>
+            <a class="p-2 text-muted" href="javasript:;">Контакты</a>
         </nav>
     </div>
-    {{--<div class="jumbotron p-3 p-md-5 rounded">--}}
-        {{--<div class="col-md-12">--}}
-            {{--<h1 class="display-4 font-italic"><span class="opacity">Иконная мастерская</span></h1>--}}
-            {{--<p class="lead my-3">Добро пожаловать! Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Образ страну маленький парадигматическая которое вопрос дал деревни рыбными языкового..</p>--}}
-            {{--<img src="/app/img/header.jpg" class="img-fluid" alt="">--}}
-            {{--<p class="lead mb-0"><a href="#" class="font-weight-bold">подробнее...</a></p>--}}
-        {{--</div>--}}
-    {{--</div>--}}
+    @yield('main_block')
 </header>
 <!-- заголовок конец -->
 <!-- ================================================== -->

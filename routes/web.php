@@ -11,17 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('main');
+Route::get('/', 'Front\MainController@index')->name('main');
 
-Route::get('/news', function () {
-    return view('front.news');
-})->name('news');
+Route::get('/news', 'Front\NewsController@newsList')->name('front.news');
 
-Route::get('/articles', function () {
-    return view('articlesList');
-})->name('articlesList');
+Route::get('/news/{id}', 'Front\NewsController@showNews')
+    ->where('id', '\d+')
+    ->name('front.news.show');
+
+Route::get('/article/{id}', 'Front\ArticlesController@showArticle')
+    ->where('id', '\d+')
+    ->name('front.articles.show');
+
+Route::get('/articles', 'Front\ArticlesController@articlesList')->name('articlesList');
 
 Route::get('/shop', function () {
     return view('shop');
@@ -77,6 +79,8 @@ Route::group(['middleware' => 'auth'], function(){
        Route::post('/articles/edit/{id}', 'Admin\ArticlesController@editRequestArticle')
            ->where('id', '\d+');
        Route::delete('/articles/delete', 'Admin\ArticlesController@deleteArticle')->name('articles.delete');
+       Route::post('/articles/delete_image', 'Admin\ArticlesController@deleteArticleImage')
+           ->name('articles.delete.image');
 
        /** News */
        Route::get('/news', 'Admin\NewsController@index')->name('news');
@@ -88,5 +92,7 @@ Route::group(['middleware' => 'auth'], function(){
        Route::post('/news/edit/{id}', 'Admin\NewsController@editRequestNews')
            ->where('id', '\d+');
        Route::delete('/news/delete', 'Admin\NewsController@deleteNews')->name('news.delete');
+       Route::post('/news/delete_image', 'Admin\NewsController@deleteNewsImage')
+           ->name('news.delete.image');
    });
 });
