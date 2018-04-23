@@ -49,6 +49,6 @@ class ArticlesController extends Controller
 
             return redirect()->route('articles')->with('success', 'Статья успешно добавлена');
         }
-        return back()->with('success', 'Статья успешно добавлена');
+        return back()->with('error', 'Статья не добавлена');
     }
 }

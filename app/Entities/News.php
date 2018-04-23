@@ -4,10 +4,10 @@ namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class News extends Model
 {
-    protected $table = 'articles';
-    protected $primaryKey = 'id';
+    protected $table = "news";
+    protected $primaryKey = "id";
 
     protected $fillable = [
         'header',

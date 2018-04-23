@@ -77,5 +77,16 @@ Route::group(['middleware' => 'auth'], function(){
        Route::post('/articles/edit/{id}', 'Admin\ArticlesController@editRequestArticle')
            ->where('id', '\d+');
        Route::delete('/articles/delete', 'Admin\ArticlesController@deleteArticle')->name('articles.delete');
+
+       /** News */
+       Route::get('/news', 'Admin\NewsController@index')->name('news');
+       Route::post('/news/add', 'Admin\NewsController@addRequestNews');
+       Route::get('/news/add', 'Admin\NewsController@addNews')->name('news.add');
+       Route::get('/news/edit/{id}', 'Admin\NewsController@editNews')
+           ->where('id', '\d+')
+           ->name('news.edit');
+       Route::post('/news/edit/{id}', 'Admin\NewsController@editRequestNews')
+           ->where('id', '\d+');
+       Route::delete('/news/delete', 'Admin\NewsController@deleteNews')->name('news.delete');
    });
 });

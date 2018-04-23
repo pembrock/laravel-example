@@ -19,8 +19,9 @@
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{ route('admin') }}">Управление</a>
     {{--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">--}}
-    <ul class="navbar-nav px-3">
+    <ul class="navbar-nav px-3 top-admin-link">
         <li class="nav-item text-nowrap">
+            <a class="nav-link" href="{{ route('main') }}" target="_blank">Перейти на сайт</a>
             <a class="nav-link" href="{{ route('logout') }}">Выйти</a>
         </li>
     </ul>
@@ -38,13 +39,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('news') }}">
                             <span data-feather="book-open"></span>
                             Новости
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('articles') }}">
                             <span data-feather="file"></span>
                             Статьи
                         </a>
