@@ -82,10 +82,10 @@
         <nav class="nav d-flex justify-content-between">
             <a class="p-2 text-muted" href="{{ route('front.news') }}">Новости</a>
             <a class="p-2 text-muted" href="{{ route('articlesList') }}">Статьи</a>
-            <a class="p-2 text-muted" href="javasript:;">Магазин</a>
-            <a class="p-2 text-muted" href="javasript:;">На заказ</a>
-            <a class="p-2 text-muted" href="javasript:;">Галерея</a>
-            <a class="p-2 text-muted" href="javasript:;">Контакты</a>
+            <a class="p-2 text-muted" href="{{ route('front.shop') }}">Магазин</a>
+            <a class="p-2 text-muted" href="{{ route('front.order') }}">На заказ</a>
+            <a class="p-2 text-muted" href="{{ route('front.gallery') }}">Галерея</a>
+            <a class="p-2 text-muted" href="{{ route('front.contacts') }}">Контакты</a>
         </nav>
     </div>
     @yield('main_block')

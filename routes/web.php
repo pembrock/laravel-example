@@ -25,18 +25,13 @@ Route::get('/article/{id}', 'Front\ArticlesController@showArticle')
 
 Route::get('/articles', 'Front\ArticlesController@articlesList')->name('articlesList');
 
-Route::get('/shop', function () {
-    return view('shop');
-})->name('shop');
+Route::get('/shop', 'Front\ShopController@shop')->name('front.shop');
 
-Route::get('/gallery', function () {
-    return view('gallery');
-})->name('gallery');
+Route::get('/gallery', 'Front\GalleryController@index')->name('front.gallery');
+Route::get('/order', 'Front\OrderController@index')->name('front.order');
 
 
-Route::get('/contacts', function () {
-    return view('contacts');
-})->name('contacts');
+Route::get('/contacts', 'Front\ContactsController@index')->name('front.contacts');
 
 
 
