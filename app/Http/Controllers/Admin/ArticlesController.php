@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticlesController extends Controller
 {
-    public $uploadPath = 'upload\articles';
+    public $uploadPath = 'upload/articles';
     public function index()
     {
         //$objArticles = new Article();
