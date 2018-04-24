@@ -23,7 +23,7 @@ class ArticlesController extends Controller
     {
         $objArticle = new Article();
         $file = $request->file('image');
-        if(!is_null($request->input('image'))) {
+        if(!is_null($this->uploadPath)) {
             $path = $file->move($this->uploadPath, $file->getClientOriginalName());
         }
         $path = isset($path) ? $path->getPathname() : NULL;
