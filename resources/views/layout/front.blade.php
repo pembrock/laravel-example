@@ -103,12 +103,12 @@
         <img class="mb-3" src="/app/img/logo_black.svg" alt="">
         <p class="mb-1">&copy; 2018 Берег спасения</p>
         <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Новости</a></li>
-            <li class="list-inline-item"><a href="#">Статьи</a></li>
-            <li class="list-inline-item"><a href="#">Магазин</a></li>
-            <li class="list-inline-item"><a href="#">На заказ</a></li>
-            <li class="list-inline-item"><a href="#">Галерея</a></li>
-            <li class="list-inline-item"><a href="#">Контакты</a></li>
+            <li class="list-inline-item"><a href="{{ route('front.news') }}">Новости</a></li>
+            <li class="list-inline-item"><a href="{{ route('articlesList') }}">Статьи</a></li>
+            <li class="list-inline-item"><a href="{{ route('front.shop') }}">Магазин</a></li>
+            <li class="list-inline-item"><a href="{{ route('front.order') }}">На заказ</a></li>
+            <li class="list-inline-item"><a href="{{ route('front.gallery') }}">Галерея</a></li>
+            <li class="list-inline-item"><a href="{{ route('front.contacts') }}">Контакты</a></li>
         </ul>
         <p class="mb-1"><a href="#">Политика конфиденциальности</a></p>
     </footer>

@@ -5,7 +5,7 @@
             <h1 class="display-4 font-italic"><span class="opacity">Иконная мастерская</span></h1>
             <p class="lead my-3">Добро пожаловать! Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Образ страну маленький парадигматическая которое вопрос дал деревни рыбными языкового..</p>
             <img src="/app/img/header.jpg" class="img-fluid" alt="">
-            <p class="lead mb-0"><a href="#" class="font-weight-bold">подробнее...</a></p>
+            {{--<p class="lead mb-0"><a href="#" class="font-weight-bold">подробнее...</a></p>--}}
         </div>
     </div>
 @stop
