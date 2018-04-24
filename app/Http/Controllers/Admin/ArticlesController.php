@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticlesController extends Controller
 {
-    public $uploadPath = 'upload\articles';
+    public $uploadPath = 'upload/articles';
     public function index()
     {
         //$objArticles = new Article();
@@ -23,8 +23,10 @@ class ArticlesController extends Controller
     {
         $objArticle = new Article();
         $file = $request->file('image');
-        $path = $file->move($this->uploadPath,$file->getClientOriginalName());
-        $path = $path ? $path->getPathname() : NULL;
+        if(!is_null($this->uploadPath)) {
+            $path = $file->move($this->uploadPath, $file->getClientOriginalName());
+        }
+        $path = isset($path) ? $path->getPathname() : NULL;
         $objArticle = $objArticle->create([
             'header' => $request->input('header'),
             'description' => $request->input('description'),

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
-    public $uploadPath = 'upload\news';
+    public $uploadPath = 'upload/news';
     public function index()
     {
 //        $objNews = new News();
