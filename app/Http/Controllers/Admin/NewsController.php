@@ -24,9 +24,11 @@ class NewsController extends Controller
     public function addRequestNews(NewsRequest $request)
     {
         $objNews = new News();
-        $file = $request->file('image');
-        $path = $file->move($this->uploadPath,$file->getClientOriginalName());
-        $path = $path ? $path->getPathname() : NULL;
+        if(!is_null($request->file('image'))) {
+            $file = $request->file('image');
+            $path = $file->move($this->uploadPath, $file->getClientOriginalName());
+        }
+        $path = isset($path) ? $path->getPathname() : NULL;
         $objNews = $objNews->create([
             'header' => $request->input('header'),
             'description' => $request->input('description'),
@@ -62,9 +64,8 @@ class NewsController extends Controller
     {
         //$news = News::find($id);
         $isPublished = boolval($request->has('is_published'));
-
-        if ($request->file('image')) {
-            $news = News::find($id);
+        $news = News::find($id);
+        if (!is_null($request->file('image'))) {
             if (!is_null($news->img_path)) {
                 News::deleteImage($news->img_path);
             }
@@ -73,7 +74,7 @@ class NewsController extends Controller
             $path = $file->move($this->uploadPath,$file->getClientOriginalName());
 
         }
-        $path = isset($path) && !empty($path) ? $path->getPathname() : NULL;
+        $path = isset($path) && !empty($path) ? $path->getPathname() : $news->img_path;
         if (News::where('id', $id)->update([
             'header' => $request->input('header'),
             'description' => $request->input('description'),

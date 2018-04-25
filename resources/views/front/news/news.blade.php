@@ -10,7 +10,7 @@
             <div class="blog-post">
                 <h2 class="blog-post-title"><a href="{{ route('front.news.show', $news->id) }}">{{ $news->header }}</a></h2>
                 <p class="blog-post-meta">{{ $news->created_at->format('d.m.Y h:i') }}</p>
-                <p>{{ $news->description }}</p>
+                <p>{!! $news->description !!}</p>
                 <img src="{{ asset($news->img_path) }}" class="img-fluid" alt="">
             </div><!-- /.blog-post -->
             @endforeach

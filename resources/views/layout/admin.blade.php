@@ -13,6 +13,8 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 </head>
 
 <body>
@@ -39,43 +41,43 @@
                         {{--</a>--}}
                     {{--</li>--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('news') }}">
+                        <a class="nav-link {{ request()->is( '*/news*') ? 'active' : '' }}" href="{{ route('news') }}">
                             <span data-feather="book-open"></span>
                             Новости
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('articles') }}">
+                        <a class="nav-link {{ request()->is( '*/articles') ? 'active' : '' }}" href="{{ route('articles') }}">
                             <span data-feather="file"></span>
                             Статьи
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link {{ request()->is( '*/gallery') ? 'active' : '' }}" href="#">
                             <span data-feather="image"></span>
                             Галерея
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link {{ request()->is( '*/contacts') ? 'active' : '' }}" href="#">
                             <span data-feather="map-pin"></span>
                             Контакты
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link {{ request()->is( '*/shop') ? 'active' : '' }}" href="#">
                             <span data-feather="shopping-cart"></span>
                             Магазин
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link {{ request()->is( '*/users') ? 'active' : '' }}" href="#">
                             <span data-feather="users"></span>
                             Пользователи
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">
+                        <a class="nav-link {{ request()->is( '*/settings') ? 'active' : '' }}">
                             <span data-feather="settings"></span>
                             Настройки
                         </a>
@@ -103,6 +105,8 @@
 </script>
 
 <script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 @yield('js')
 @include('inc.messages')
 </body>

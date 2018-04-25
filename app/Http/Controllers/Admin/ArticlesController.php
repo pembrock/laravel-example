@@ -22,9 +22,11 @@ class ArticlesController extends Controller
     public function addRequestArticle(ArticleRequest $request)
     {
         $objArticle = new Article();
-        $file = $request->file('image');
-        if(!is_null($this->uploadPath)) {
-            $path = $file->move($this->uploadPath, $file->getClientOriginalName());
+        if (!is_null($request->file('image'))) {
+            $file = $request->file('image');
+            if (!is_null($this->uploadPath)) {
+                $path = $file->move($this->uploadPath, $file->getClientOriginalName());
+            }
         }
         $path = isset($path) ? $path->getPathname() : NULL;
         $objArticle = $objArticle->create([
@@ -61,9 +63,8 @@ class ArticlesController extends Controller
     public function editRequestArticle(ArticleRequest $request, int $id)
     {
         $isPublished = boolval($request->has('is_published'));
-
-        if ($request->file('image')) {
-            $article = Article::find($id);
+        $article = Article::find($id);
+        if (!is_null($request->file('image'))) {
             if (!is_null($article->img_path)) {
                 Article::deleteImage($article->img_path);
             }
@@ -72,7 +73,7 @@ class ArticlesController extends Controller
             $path = $file->move($this->uploadPath,$file->getClientOriginalName());
 
         }
-        $path = isset($path) && !empty($path) ? $path->getPathname() : NULL;
+        $path = isset($path) && !empty($path) ? $path->getPathname() : $article->img_path;
         if (Article::where('id', $id)->update([
             'header' => $request->input('header'),
             'description' => $request->input('description'),

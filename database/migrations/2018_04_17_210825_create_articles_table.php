@@ -17,7 +17,7 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('header');
             $table->text('description');
-            $table->text('text');
+            $table->longText('text');
             $table->string('img_path')->nullable();
             $table->text('meta_keywords')->nullable();
             $table->text('meta_description')->nullable();

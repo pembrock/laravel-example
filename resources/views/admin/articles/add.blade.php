@@ -6,12 +6,24 @@
         <form method="post" enctype="multipart/form-data">
             {!! csrf_field() !!}
             <p>Введите заголовок статьи:<br><input type="text" name="header" class="form-control"></p>
-            <p>Описание:<br><textarea name="description" class="form-control"></textarea></p>
-            <p>Текст:<br><textarea name="text" class="form-control"></textarea></p>
+            <p>Описание:<br><textarea name="description" class="form-control summernote"></textarea></p>
+            <p>Текст:<br><textarea name="text" class="form-control summernote"></textarea></p>
             <p>Изображение:<br><input type="file" name="image"/></p>
             <br>
             <br>
             <button type="submit" class="btn btn-success">Добавить</button>
         </form>
     </main>
+@stop
+
+
+@section('js')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.summernote').summernote({
+                height: 250
+            });
+            $('.popover').hide();
+        });
+    </script>
 @stop

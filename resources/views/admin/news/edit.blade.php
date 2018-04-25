@@ -5,10 +5,10 @@
         <br>
         <form method="post" enctype="multipart/form-data">
             {!! csrf_field() !!}
-            <p><input type="checkbox" name="is_published" value="1" @if ($news->is_published == 1)checked @endif> опубликовано</p>
+            <p><input type="checkbox" name="is_published" value="1" @if ($news->is_published == 1)checked @endif autofocus> опубликовано</p>
             <p>Введите название новости:<br><input type="text" name="header" class="form-control" value="{{ $news->header }}"></p>
-            <p>Описание:<br><textarea name="description" class="form-control">{!! $news->description !!}</textarea></p>
-            <p>Текст:<br><textarea name="text" class="form-control">{!! $news->text !!}</textarea></p>
+            <p>Описание:<br><textarea name="description" class="form-control summernote">{!! $news->description !!}</textarea></p>
+            <p>Текст:<br><textarea name="text" class="form-control summernote">{!! $news->text !!}</textarea></p>
             <p>Изображение:<br><input type="file" name="image"/></p>
             @if ($news->img_path)
                 <div class="uploaded_image">
@@ -27,6 +27,12 @@
 
 @section('js')
     <script type="text/javascript">
+        $(document).ready(function() {
+            $('.summernote').summernote({
+                height: 250
+            });
+            $('.popover').hide();
+        });
         $(function(){
             $('.delete').on('click', function(){
                 if (confirm("Вы действительно хотите удалит это изображение?")) {
