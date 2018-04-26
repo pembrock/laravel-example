@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth'], function(){
 
    //admin
    Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
-       Route::get('/', 'Admin\AccountController@index')->name('admin');
+       Route::get('/', 'Admin\NewsController@index')->name('admin');
 
        /** Categories */
        Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
