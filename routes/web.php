@@ -51,7 +51,7 @@ Route::group(['middleware' => 'auth'], function(){
 
    //admin
    Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
-       Route::get('/', 'Admin\AccountController@index')->name('admin');
+       Route::get('/', 'Admin\NewsController@index')->name('admin');
 
        /** Categories */
        Route::get('/categories', 'Admin\CategoriesController@index')->name('categories');
@@ -89,5 +89,29 @@ Route::group(['middleware' => 'auth'], function(){
        Route::delete('/news/delete', 'Admin\NewsController@deleteNews')->name('news.delete');
        Route::post('/news/delete_image', 'Admin\NewsController@deleteNewsImage')
            ->name('news.delete.image');
+
+       /** Shop */
+       Route::get('/shop', 'Admin\ShopController@index')->name('shop');
+       Route::post('/shop/add', 'Admin\ShopController@addRequestShop');
+       Route::get('/shop/add', 'Admin\ShopController@addShop')->name('shop.add');
+       Route::get('/shop/edit/{id}', 'Admin\ShopController@editShop')
+           ->where('id', '\d+')
+           ->name('shop.edit');
+       Route::post('/shop/edit/{id}', 'Admin\ShopController@editRequestShop')
+           ->where('id', '\d+');
+       Route::delete('/shop/delete', 'Admin\ShopController@deleteShop')->name('shop.delete');
+       Route::post('/shop/delete_image', 'Admin\ShopController@deleteShopImage')
+           ->name('shop.delete.image');
+
+       /** Users */
+       Route::get('/users', 'Admin\UsersController@index')->name('users');
+       Route::post('/users/add', 'Admin\UsersController@addRequestUser');
+       Route::get('/users/add', 'Admin\UsersController@addUser')->name('users.add');
+       Route::get('/user/edit/{id}', 'Admin\UsersController@editUser')
+           ->where('id', '\d+')
+           ->name('users.edit');
+       Route::post('/users/edit/{id}', 'Admin\UsersController@editRequestUser')
+           ->where('id', '\d+');
+       Route::delete('/users/delete', 'Admin\UsersController@deleteUser')->name('users.delete');
    });
 });

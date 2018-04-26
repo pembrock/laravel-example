@@ -110,7 +110,7 @@
             <li class="list-inline-item"><a href="{{ route('front.gallery') }}">Галерея</a></li>
             <li class="list-inline-item"><a href="{{ route('front.contacts') }}">Контакты</a></li>
         </ul>
-        <p class="mb-1"><a href="#">Политика конфиденциальности</a></p>
+        <p class="mb-1"><a href="{{ route('front.policy') }}">Политика конфиденциальности</a></p>
     </footer>
     <!-- подвал конец -->
     <!-- ================================================== -->
