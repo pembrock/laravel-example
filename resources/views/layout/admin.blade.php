@@ -42,7 +42,7 @@
                     {{--</li>--}}
 
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is( '*/news*') || request()->is( 'admin') ? 'active' : '' }}" href="{{ route('news') }}">
+                        <a class="nav-link {{ request()->is( '*/news*') || request()->is( '*admin') ? 'active' : '' }}" href="{{ route('news') }}">
                             <span data-feather="book-open"></span>
                             Новости
                         </a>
