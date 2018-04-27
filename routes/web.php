@@ -32,6 +32,7 @@ Route::get('/order', 'Front\OrderController@index')->name('front.order');
 
 
 Route::get('/contacts', 'Front\ContactsController@index')->name('front.contacts');
+Route::get('/policy', 'Front\StaticPageController@policy')->name('front.policy');
 
 
 
