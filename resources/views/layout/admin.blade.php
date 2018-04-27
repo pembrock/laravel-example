@@ -66,13 +66,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is( '*/shop') ? 'active' : '' }}" href="#">
+                        <a class="nav-link {{ request()->is( '*/shop') ? 'active' : '' }}" href="{{ route('shop') }}">
                             <span data-feather="shopping-cart"></span>
                             Магазин
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is( '*/users') ? 'active' : '' }}" href="#">
+                        <a class="nav-link {{ request()->is( '*/users') ? 'active' : '' }}" href="{{ route('users') }}">
                             <span data-feather="users"></span>
                             Пользователи
                         </a>
