@@ -18,6 +18,7 @@ class UsersController extends Controller
 
     public function addRequestUser(Request $request)
     {
+        dd($request->all());
         $isAdmin = boolval($request->has('isAdmin'));
         $objUser = new User();
         $objUser = $objUser->create([

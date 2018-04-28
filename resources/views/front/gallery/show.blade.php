@@ -6,28 +6,28 @@
                 <h3 class="mb-2"><a class="text-dark" href="#">Галерея</a></h3><hr>
                 <div class="card-columns p-2">
                     <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-1.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="/app/img/icon-1.jpg" alt="Card image cap" height="450">
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="/app/img/icon-2.jpg" alt="Card image cap" height="450">
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap" height="450">
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap" height="450">
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-1.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="/app/img/icon-1.jpg" alt="Card image cap" height="450">
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-2.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="/app/img/icon-2.jpg" alt="Card image cap" height="450">
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap" height="450">
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap" height="450">
                     </div>
                 </div>
             </div>

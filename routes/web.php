@@ -19,9 +19,17 @@ Route::get('/news/{id}', 'Front\NewsController@showNews')
     ->where('id', '\d+')
     ->name('front.news.show');
 
+Route::get('/news/{year}/{month}', 'Front\NewsController@showArchive')
+    ->where('year', '\d+')
+    ->name('front.news.archive');
+
 Route::get('/article/{id}', 'Front\ArticlesController@showArticle')
     ->where('id', '\d+')
     ->name('front.articles.show');
+
+Route::get('/articles/{year}/{month}', 'Front\ArticlesController@showArchive')
+    ->where('year', '\d+')
+    ->name('front.articles.archive');
 
 Route::get('/articles', 'Front\ArticlesController@articlesList')->name('articlesList');
 
@@ -31,7 +39,7 @@ Route::get('/gallery', 'Front\GalleryController@index')->name('front.gallery');
 Route::get('/order', 'Front\OrderController@index')->name('front.order');
 
 
-Route::get('/contacts', 'Front\ContactsController@index')->name('front.contacts');
+Route::get('/contacts', 'Front\StaticPageController@contacts')->name('front.contacts');
 Route::get('/policy', 'Front\StaticPageController@policy')->name('front.policy');
 
 
@@ -108,11 +116,15 @@ Route::group(['middleware' => 'auth'], function(){
        Route::get('/users', 'Admin\UsersController@index')->name('users');
        Route::post('/users/add', 'Admin\UsersController@addRequestUser');
        Route::get('/users/add', 'Admin\UsersController@addUser')->name('users.add');
-       Route::get('/user/edit/{id}', 'Admin\UsersController@editUser')
+       Route::get('/users/edit/{id}', 'Admin\UsersController@editUser')
            ->where('id', '\d+')
            ->name('users.edit');
        Route::post('/users/edit/{id}', 'Admin\UsersController@editRequestUser')
            ->where('id', '\d+');
        Route::delete('/users/delete', 'Admin\UsersController@deleteUser')->name('users.delete');
+
+       /** Settings */
+       Route::get('/settings/{name}', 'Admin\SettingsController@index')->name('settings.page');
+       Route::post('/settings/{name}', 'Admin\SettingsController@editSettings')->name('settings.page');
    });
 });

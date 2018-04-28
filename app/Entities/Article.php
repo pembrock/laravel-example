@@ -31,4 +31,16 @@ class Article extends Model
     {
         app(Filesystem::class)->delete(public_path($path));
     }
+
+
+    /**
+     * @return mixed
+     */
+    static public function getArticlesArchiveList()
+    {
+        return self::selectRaw('year(created_at) year, monthname(created_at) month, count(*) is_published')
+            ->groupBy('year', 'month')
+            ->orderByRaw('min(created_at) desc')
+            ->get();
+    }
 }

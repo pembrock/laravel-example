@@ -7,8 +7,8 @@
                         <h3 class="mb-2"><a class="text-dark" href="#">{{ $articles->header }}</a></h3>
                     </div>
                 </div>
-                <img src="{{ asset($articles->img_path) }}" width="150" style="float: left; margin-right: 20px">
-                {{ $articles->text }}
+                {{--<img src="{{ asset($articles->img_path) }}" width="150" style="float: left; margin-right: 20px">--}}
+                {!! $articles->text !!}
                 <div class="clearfix"></div>
             </div>
     </div>

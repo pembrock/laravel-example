@@ -60,8 +60,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is( '*/contacts') ? 'active' : '' }}" href="#">
-                            <span data-feather="map-pin"></span>
+                        <a class="nav-link {{ request()->is( '*/settings/contacts') ? 'active' : '' }}" href="{{ route('settings.page', ['name' => 'contacts']) }}">
+                            <span data-feather="settings"></span>
                             Контакты
                         </a>
                     </li>
@@ -78,9 +78,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is( '*/settings') ? 'active' : '' }}">
+                        <a class="nav-link {{ request()->is( '*/settings/policy') ? 'active' : '' }}" href="{{ route('settings.page', ['name' => 'policy']) }}">
                             <span data-feather="settings"></span>
-                            Настройки
+                            Политика конфиденциальности
                         </a>
                     </li>
                 </ul>
