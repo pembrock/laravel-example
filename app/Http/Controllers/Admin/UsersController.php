@@ -52,7 +52,6 @@ class UsersController extends Controller
 
     public function editRequestUser(Request $request, int $id)
     {
-        //$news = News::find($id);
         $isAdmin = boolval($request->has('isAdmin'));
         $user = User::find($id);
 

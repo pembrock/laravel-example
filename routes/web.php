@@ -126,5 +126,10 @@ Route::group(['middleware' => 'auth'], function(){
        /** Settings */
        Route::get('/settings/{name}', 'Admin\SettingsController@index')->name('settings.page');
        Route::post('/settings/{name}', 'Admin\SettingsController@editSettings')->name('settings.page');
+
+       /** Gallery */
+       Route::get('/gallery', 'Admin\GalleryController@index')->name('gallery');
+       Route::get('/gallery/add', 'Admin\GalleryController@addGallery')->name('gallery.add');
+       Route::delete('/gallery/delete', 'Admin\GalleryController@deleteGallery')->name('gallery.delete');
    });
 });

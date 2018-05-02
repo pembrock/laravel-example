@@ -54,7 +54,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is( '*/gallery') ? 'active' : '' }}" href="#">
+                        <a class="nav-link {{ request()->is( '*/gallery') ? 'active' : '' }}" href="{{ route('gallery') }}">
                             <span data-feather="image"></span>
                             Галерея
                         </a>
