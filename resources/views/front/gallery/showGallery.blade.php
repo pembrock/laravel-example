@@ -3,12 +3,12 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-12">
-                <h3 class="mb-2"><a class="text-dark" href="#">Галерея</a></h3><hr>
+                <h3 class="mb-2"><a class="text-dark" href="{{ route('front.gallery') }}">Галереи</a></h3><hr>
                 <div class="card-columns p-2">
-                    @if (isset($galleries))
-                        @foreach ($galleries as $gallery)
+                    @if (isset($images))
+                        @foreach ($images as $image)
                             <div class="card">
-                                <a href="{{ route('front.gallery.show', ['id' => $gallery->id]) }}"><img class="card-img-top" src="{{ asset($preview[$gallery->id]) }}" alt="{{ $gallery->title }}" height="450"></a>
+                                <img class="card-img-top" src="{{ asset($image->path) }}" height="450">
                                 {{--<p>{{ $gallery->title }}</p>--}}
                             </div>
                         @endforeach

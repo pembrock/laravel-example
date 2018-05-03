@@ -36,6 +36,9 @@ Route::get('/articles', 'Front\ArticlesController@articlesList')->name('articles
 Route::get('/shop', 'Front\ShopController@shop')->name('front.shop');
 
 Route::get('/gallery', 'Front\GalleryController@index')->name('front.gallery');
+Route::get('/gallery/{id}', 'Front\GalleryController@showGallery')
+    ->where('id', '\d+')
+    ->name('front.gallery.show');
 Route::get('/order', 'Front\OrderController@index')->name('front.order');
 
 
@@ -130,6 +133,12 @@ Route::group(['middleware' => 'auth'], function(){
        /** Gallery */
        Route::get('/gallery', 'Admin\GalleryController@index')->name('gallery');
        Route::get('/gallery/add', 'Admin\GalleryController@addGallery')->name('gallery.add');
+       Route::post('/gallery/add', 'Admin\GalleryController@addRequestGallery');
+       Route::get('/gallery/edit/{id}', 'Admin\GalleryController@editGallery')
+           ->where('id', '\d+')
+           ->name('gallery.edit');
+       Route::post('/gallery/edit/{id}', 'Admin\GalleryController@editRequestGallery')
+           ->where('id', '\d+');
        Route::delete('/gallery/delete', 'Admin\GalleryController@deleteGallery')->name('gallery.delete');
    });
 });
