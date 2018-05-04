@@ -34,101 +34,50 @@
             </div>
         </div>
 
+        @if (isset($shop))
         <div class="row mb-5">
             <div class="col-md-12">
                 <h3 class="mb-2"><a class="text-dark" href="#">Магазин</a></h3><hr>
                 <div class="row">
+                    @foreach ($shop as $good)
                     <div class="col-md-3">
                         <div class="p-2">
                             <div class="card">
-                                <img class="card-img-top" src="/app/img/icon-2.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="{{ asset($good->img) }}" alt="Card image cap">
                                 <div class="card-body">
-                                    <p class="card-text">Описание иконы. Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</p>
+                                    <p class="card-text">{!! $good->description !!}</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#modal-zakaz">Купить</button>
-                                        <small class="text-success">В наличии</small>
+                                        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-id="{{ $good->id }}" data-target="#modal-zakaz">Купить</button>
+                                        @if ($good->is_availability == 1)
+                                            <small class="text-success">В наличии</small>
+                                        @else
+                                            <small class="text-danger">Нет в наличии</small>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="p-2">
-                            <div class="card">
-                                <img class="card-img-top" src="/app/img/icon-2.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text">Описание иконы. Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#modal-zakaz">Купить</button>
-                                        <small class="text-success">В наличии</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="p-2">
-                            <div class="card">
-                                <img class="card-img-top" src="/app/img/icon-2.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text">Описание иконы. Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#modal-zakaz" disabled>Купить</button>
-                                        <small class="text-danger">Нет в наличии</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="p-2">
-                            <div class="card">
-                                <img class="card-img-top" src="/app/img/icon-2.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                    <p class="card-text">Описание иконы. Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#modal-zakaz">Купить</button>
-                                        <small class="text-success">В наличии</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-
+        @endif
+        @if (isset($galleries))
         <div class="row mb-5">
             <div class="col-md-12">
                 <h3 class="mb-2"><a class="text-dark" href="#">Галерея</a></h3><hr>
                 <div class="card-columns p-2">
+
+                    @foreach ($galleries as $gallery)
                     <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-1.jpg" alt="Card image cap">
+                        <a href="{{ route('front.gallery.show', ['id' => $gallery->id]) }}"><img class="card-img-top" src="{{ asset($preview[$gallery->id]) }}" alt="{{ $gallery->title }}" height="450"></a>
                     </div>
-                    <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-2.jpg" alt="Card image cap">
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap">
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap">
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-1.jpg" alt="Card image cap">
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-2.jpg" alt="Card image cap">
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap">
-                    </div>
-                    <div class="card">
-                        <img class="card-img-top" src="/app/img/icon-3.jpg" alt="Card image cap">
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
+        @endif
 
     </div>
 
