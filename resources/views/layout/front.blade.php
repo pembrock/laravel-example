@@ -121,5 +121,6 @@
     <script src="/app/js/jquery.min.js"></script>
     <script src="/app/js/bootstrap.min.js"></script>
     <script src="/app/js/common.js"></script>
+    @yield('js')
 </body>
 </html>

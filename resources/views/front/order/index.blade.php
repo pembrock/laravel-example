@@ -10,13 +10,13 @@
                 <div class="card">
                     <div class="card-header"><h4>Примеры</h4></div>
                     <div class="card-body">
-                        <img src="img/example/diski.jpg" class="img-fluid" alt="">
+                        <img src="{{  asset('app/img/example/diski.jpg') }}" class="img-fluid" alt="">
                         <p class="card-text">Золочение доски</p>
-                        <img src="img/example/chekanka.jpg" class="img-fluid" alt="">
+                        <img src="{{  asset('app/img/example/chekanka.jpg') }}" class="img-fluid" alt="">
                         <p class="card-text">Чеканка позолоты</p>
-                        <img src="img/example/ornament.jpg" class="img-fluid" alt="">
+                        <img src="{{  asset('app/img/example/ornament.jpg') }}" class="img-fluid" alt="">
                         <p class="card-text">Орнаментальные поля</p>
-                        <img src="img/example/raskraska.jpg" class="img-fluid" alt="">
+                        <img src="{{  asset('app/img/example/raskraska.jpg') }}" class="img-fluid" alt="">
                         <p class="card-text">Раскраска чеканных полей</p>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="country">Количество фигур в композиции</label>
-                                    <select class="custom-select d-block w-100" id="country" required>
+                                    <select class="custom-select d-block w-100" id="figures" required>
                                         <option value="нет">нет</option>
                                         <option value="1">1 фигура</option>
                                         <option value="2">2 фигуры</option>
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="country">Живописный фон (процент заполнения)</label>
-                                    <select class="custom-select d-block w-100" id="country" required>
+                                    <select class="custom-select d-block w-100" id="background" required>
                                         <option value="нет">нет</option>
                                         <option value="10">10%</option>
                                         <option value="20">20%</option>
@@ -139,7 +139,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="country">Предстоящие на полях</label>
-                                    <select class="custom-select d-block w-100" id="country" required>
+                                    <select class="custom-select d-block w-100" id="margin" required>
                                         <option value="нет">нет</option>
                                         <option value="2">2</option>
                                         <option value="4">4</option>
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="country">Картуш</label>
-                                    <select class="custom-select d-block w-100" id="country" required>
+                                    <select class="custom-select d-block w-100" id="cartouche" required>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -223,4 +223,7 @@
             </div>
         </div>
         </div>
+@stop
+@section('js')
+    <script type="text/javascript" src="{{ asset('app/js/calc.js') }}"></script>
 @stop
