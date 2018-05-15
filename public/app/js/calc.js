@@ -149,21 +149,33 @@ $(function() { // Остальные функции
 	$("#figures").change(function(){ // Количество фигур в композиции
 		// сдесь должен быть код расчета цены от выбранного варианта
 		// формула: if (данная опция изменена) то kolichestvo_figur_v_kompozitsii = tsena_za_Kolichestvo_figur_v_kompozitsii * (выбранное количество); else kolichestvo_figur_v_kompozitsii = 0;
+		var count = $(this).find(":selected").val();
+		kolichestvo_figur_v_kompozitsii = tsena_za_Kolichestvo_figur_v_kompozitsii * count;
+		getPrice();
 	});
 
 	$("#background").change(function(){ // Живописный фон
 		// сдесь должен быть код расчета цены от выбранного варианта
 		// формула: if (данная опция изменена) то zhivopisnyy_fon = tsena_za_Zhivopisnyy_fon * (выбранное количество); else zhivopisnyy_fon = 0;
+        var count = $(this).find(":selected").val();
+        zhivopisnyy_fon = tsena_za_Zhivopisnyy_fon * count;
+        getPrice();
 	});
 
 	$("#margin").change(function(){ // Предстоящие на полях
 		// сдесь должен быть код расчета цены от выбранного варианта
 		// формула: if (данная опция изменена) то predstoyashchiye_na_polyakh = tsena_za_Predstoyashchiye_na_polyakh * (выбранное количество); else predstoyashchiye_na_polyakh = 0;
+        var count = $(this).find(":selected").val();
+        predstoyashchiye_na_polyakh = tsena_za_Predstoyashchiye_na_polyakh * count;
+        getPrice();
 	});
 
 	$("#cartouche").change(function(){ // Картуш
 		// сдесь должен быть код расчета цены от выбранного варианта
 		// формула: if (данная опция изменена) то kartush = tsena_za_Kartush * (выбранное количество); else kartush = 0;
+        var count = $(this).find(":selected").val();
+        kartush = tsena_za_Kartush * count;
+        getPrice();
 	});
 
 	$("").change(function(){ // Курьер

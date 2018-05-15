@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-area">Площадь, м<sup>2</sup></label>
-                                    <input class="form-control" type="text" id="cc-area" placeholder="900" readonly>
+                                    <input class="form-control" type="text" id="cc-area" placeholder="0" readonly>
                                     <output id="cc-area"></output>
                                     <!-- <span class="form-control-plaintext" id="cc-area">999</span> -->
                                 </div>
@@ -92,7 +92,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="country">Количество фигур в композиции</label>
                                     <select class="custom-select d-block w-100" id="figures" required>
-                                        <option value="нет">нет</option>
+                                        <option value="0">нет</option>
                                         <option value="1">1 фигура</option>
                                         <option value="2">2 фигуры</option>
                                         <option value="3">3 фигуры</option>
@@ -121,7 +121,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="country">Живописный фон (процент заполнения)</label>
                                     <select class="custom-select d-block w-100" id="background" required>
-                                        <option value="нет">нет</option>
+                                        <option value="0">нет</option>
                                         <option value="10">10%</option>
                                         <option value="20">20%</option>
                                         <option value="30">30%</option>
@@ -140,7 +140,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="country">Предстоящие на полях</label>
                                     <select class="custom-select d-block w-100" id="margin" required>
-                                        <option value="нет">нет</option>
+                                        <option value="0">нет</option>
                                         <option value="2">2</option>
                                         <option value="4">4</option>
                                         <option value="6">6</option>
@@ -195,15 +195,15 @@
                                 <div class="col-md-12 mb-3">
                                     <label for="cc-delivery">Способ доставки</label>
                                     <div class="custom-control custom-radio" id="cc-delivery">
-                                        <input id="delivery-1" name="paymentMethod" type="radio" class="custom-control-input" required>
+                                        <input id="delivery-1" name="delivery-1" type="radio" class="custom-control-input" required>
                                         <label class="custom-control-label" for="delivery-1">Самавывоз в офисе <a href="https://yandex.ru/maps/-/CBqyeGHyGA" target="_blank">метро Люблино, улица Судакова, дом 11</a> (<span class="text-success font-weight-bold">бесплатно</span>)</label>
                                     </div>
                                     <div class="custom-control custom-radio" id="cc-delivery">
-                                        <input id="delivery-2" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                                        <input id="delivery-2" name="delivery-2" type="radio" class="custom-control-input" checked required>
                                         <label class="custom-control-label" for="delivery-2">Курьером в пределах Москвы (<span class="text-success font-weight-bold">+150 руб</span>)</label>
                                     </div>
                                     <div class="custom-control custom-radio" id="cc-delivery">
-                                        <input id="delivery-3" name="paymentMethod" type="radio" class="custom-control-input" required>
+                                        <input id="delivery-3" name="delivery-3" type="radio" class="custom-control-input" required>
                                         <label class="custom-control-label" for="delivery-3">Транспортной компанией за пределы Москвы (<span class="text-success font-weight-bold">оплачивается отдельно</span>)</label>
                                     </div>
                                 </div>
@@ -214,7 +214,7 @@
                     <!-- Итоговая цена начало -->
                     <div class="card mb-3">
                         <div class="col-md-6 mb-3">
-                            <p class="h3 py-3">Итого: <span id="price" class="text-success font-weight-bold">99900</span> руб.</p>
+                            <p class="h3 py-3">Итого: <span id="price" class="text-success font-weight-bold">0</span> руб.</p>
                             <button class="btn btn-primary btn-lg" type="submit">Заказать</button>
                         </div>
                     </div>
