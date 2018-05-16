@@ -215,7 +215,7 @@
                     <div class="card mb-3">
                         <div class="col-md-6 mb-3">
                             <p class="h3 py-3">Итого: <span id="price" class="text-success font-weight-bold">0</span> руб.</p>
-                            <button class="btn btn-primary btn-lg" type="submit">Заказать</button>
+                            <button class="btn btn-primary btn-lg" id="send-order" type="submit">Заказать</button>
                         </div>
                     </div>
                     <!-- Итоговая цена конец -->

@@ -43,7 +43,7 @@ function getPrice() // Итоговая цена
 	totalPrice = area * (tsena_za_Kvadratnyy_santimetr + zolocheniye_doski + chekanka_pozoloty + raskraska_chekannykh_poley + razdelka_odezhd_zolotom + dopolnitelnyy_obraz + ornamentalnyye_polya + arka_tron + kolichestvo_figur_v_kompozitsii + zhivopisnyy_fon + predstoyashchiye_na_polyakh + kartush + kuryer);
 	totalPrice = parseInt(totalPrice);
 	if (totalPrice) {
-		$('#price').html(Math.round(totalPrice)+' руб.');
+		$('#price').html(Math.round(totalPrice));
 	}else{
 		$('#price').html('не полные данные для расчета суммы');
 	}
@@ -183,4 +183,7 @@ $(function() { // Остальные функции
 		// формула: if (данная опция выбрана) то kuryer = tsena_za_Kuryera; else kuryer = 0;
 	});
 
+	$('#send-order').on('click', function(){
+
+	});
 });
