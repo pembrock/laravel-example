@@ -40,12 +40,12 @@ Route::get('/gallery/{id}', 'Front\GalleryController@showGallery')
     ->where('id', '\d+')
     ->name('front.gallery.show');
 Route::get('/order', 'Front\OrderController@index')->name('front.order');
+Route::post('/order', 'Front\OrderController@sendEmail')->name('front.sendEmail');
 
 
 Route::get('/contacts', 'Front\StaticPageController@contacts')->name('front.contacts');
 Route::get('/policy', 'Front\StaticPageController@policy')->name('front.policy');
 
-Route::get('/send', 'Front\OrderController@sendEmail')->name('front.sendEmail');
 
 
 Route::group(['middleware' => 'guest'], function() {

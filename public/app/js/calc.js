@@ -40,10 +40,11 @@ var cc_shirina= 1;
 function getPrice() // Итоговая цена
 {
 	var totalPrice = 0;
-	totalPrice = area * (tsena_za_Kvadratnyy_santimetr + zolocheniye_doski + chekanka_pozoloty + raskraska_chekannykh_poley + razdelka_odezhd_zolotom + dopolnitelnyy_obraz + ornamentalnyye_polya + arka_tron + kolichestvo_figur_v_kompozitsii + zhivopisnyy_fon + predstoyashchiye_na_polyakh + kartush + kuryer);
+	totalPrice = area * (tsena_za_Kvadratnyy_santimetr + zolocheniye_doski + chekanka_pozoloty + raskraska_chekannykh_poley + razdelka_odezhd_zolotom + dopolnitelnyy_obraz + ornamentalnyye_polya + arka_tron + kolichestvo_figur_v_kompozitsii + zhivopisnyy_fon + predstoyashchiye_na_polyakh + kartush) + kuryer;
 	totalPrice = parseInt(totalPrice);
 	if (totalPrice) {
 		$('#price').html(Math.round(totalPrice));
+		$('#total-price').val(Math.round(totalPrice));
 	}else{
 		$('#price').html('не полные данные для расчета суммы');
 	}
@@ -178,12 +179,14 @@ $(function() { // Остальные функции
         getPrice();
 	});
 
-	$("").change(function(){ // Курьер
-		// сдесь должен быть код расчета цены от выбранного варианта
-		// формула: if (данная опция выбрана) то kuryer = tsena_za_Kuryera; else kuryer = 0;
+	$('input:radio[name="delivery"]').on('change', function(){
+		var selected = $(this).val();
+		if (selected == 2) {
+			kuryer = 150;
+		} else {
+			kuryer = 0;
+		}
+		getPrice();
 	});
 
-	$('#send-order').on('click', function(){
-
-	});
 });

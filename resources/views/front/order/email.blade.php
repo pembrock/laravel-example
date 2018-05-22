@@ -1,3 +1,13 @@
-Hi <strong>{{ $name }}</strong>,
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Новый заказ</title>
+</head>
 
-<p>{{ $body }}</p>
+<body>
+<h2>Новый заказ на сайте <a href="берегспасения.рф">Берег Спасения</a></h2>
+<br/>
+{!! $body !!}
+</body>
+
+</html>

@@ -3,7 +3,7 @@
     <div class="container">
         <div class="py-5 text-center">
             <h2>Заказть икону онлайн</h2>
-            <p class="lead">Описание подзаголовка. Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Дал страну ее первую сбить.</p>
+            {{--<p class="lead">Описание подзаголовка. Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Дал страну ее первую сбить.</p>--}}
         </div>
         <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
@@ -22,7 +22,8 @@
                 </div>
             </div>
             <div class="col-md-8 order-md-1">
-                <form class="needs-validation" oninput="changeText()" novalidate>
+                <form class="needs-validation" method="post" oninput="changeText()" novalidate>
+                {!! csrf_field() !!}
                     <!-- Размер доски начало -->
                     <div class="card mb-3">
                         <div class="card-header"><h4>Размер доски</h4></div>
@@ -30,21 +31,21 @@
                             <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-vysota">Высота, см</label>
-                                    <input type="text" class="form-control" id="cc-vysota" placeholder="Введите высоту" required>
+                                    <input type="text" class="form-control" id="cc-vysota" name="cc-vysota" placeholder="Введите высоту" required>
                                     <div class="invalid-feedback">
                                         Не правильная высота
                                     </div>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-shirina">Ширина, см</label>
-                                    <input type="text" class="form-control" id="cc-shirina" placeholder="Введите ширину" required>
+                                    <input type="text" class="form-control" id="cc-shirina" name="cc-shirina" placeholder="Введите ширину" required>
                                     <div class="invalid-feedback">
                                         Не верная ширина
                                     </div>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-area">Площадь, м<sup>2</sup></label>
-                                    <input class="form-control" type="text" id="cc-area" placeholder="0" readonly>
+                                    <input class="form-control" type="text" id="cc-area" name="cc-area" placeholder="0" readonly>
                                     <output id="cc-area"></output>
                                     <!-- <span class="form-control-plaintext" id="cc-area">999</span> -->
                                 </div>
@@ -59,39 +60,39 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="zolocheniye-doski">
+                                        <input type="checkbox" class="custom-control-input" id="zolocheniye-doski" name="zolocheniye-doski" value="1">
                                         <label class="custom-control-label" for="zolocheniye-doski">Золочение доски</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="chekanka-pozoloty">
+                                        <input type="checkbox" class="custom-control-input" id="chekanka-pozoloty" name="chekanka-pozoloty" value="1">
                                         <label class="custom-control-label" for="chekanka-pozoloty">Чеканка позолоты</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="raskraska-chekannykh-poley">
+                                        <input type="checkbox" class="custom-control-input" id="raskraska-chekannykh-poley" name="raskraska-chekannykh-poley" value="1">
                                         <label class="custom-control-label" for="raskraska-chekannykh-poley">Раскраска чеканных полей</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="razdelka-odezhd-zolotom">
+                                        <input type="checkbox" class="custom-control-input" id="razdelka-odezhd-zolotom" name="razdelka-odezhd-zolotom" value="1">
                                         <label class="custom-control-label" for="razdelka-odezhd-zolotom">Разделка одежд золотом</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="dopolnitel'nyy-obraz">
-                                        <label class="custom-control-label" for="dopolnitel'nyy-obraz">Дополнительный образ</label>
+                                        <input type="checkbox" class="custom-control-input" id="dopolnitelnyy-obraz" name="dopolnitelnyy-obraz" value="1">
+                                        <label class="custom-control-label" for="dopolnitelnyy-obraz">Дополнительный образ</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="ornamental'nyye-polya">
-                                        <label class="custom-control-label" for="ornamental'nyye-polya">Орнаментальные поля</label>
+                                        <input type="checkbox" class="custom-control-input" id="ornamentalnyye-polya" name="ornamentalnyye-polya" value="1">
+                                        <label class="custom-control-label" for="ornamentalnyye-polya">Орнаментальные поля</label>
                                     </div>
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="arka,-tron">
-                                        <label class="custom-control-label" for="arka,-tron">Арка, трон</label>
+                                        <input type="checkbox" class="custom-control-input" id="arka-tron" name="arka-tron" value="1">
+                                        <label class="custom-control-label" for="arka-tron">Арка, трон</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="country">Количество фигур в композиции</label>
-                                    <select class="custom-select d-block w-100" id="figures" required>
+                                    <select class="custom-select d-block w-100" id="figures" name="figures" required>
                                         <option value="0">нет</option>
                                         <option value="1">1 фигура</option>
                                         <option value="2">2 фигуры</option>
@@ -120,7 +121,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="country">Живописный фон (процент заполнения)</label>
-                                    <select class="custom-select d-block w-100" id="background" required>
+                                    <select class="custom-select d-block w-100" id="background" name="background" required>
                                         <option value="0">нет</option>
                                         <option value="10">10%</option>
                                         <option value="20">20%</option>
@@ -139,7 +140,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="country">Предстоящие на полях</label>
-                                    <select class="custom-select d-block w-100" id="margin" required>
+                                    <select class="custom-select d-block w-100" id="margin" name="margin" required>
                                         <option value="0">нет</option>
                                         <option value="2">2</option>
                                         <option value="4">4</option>
@@ -151,7 +152,7 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="country">Картуш</label>
-                                    <select class="custom-select d-block w-100" id="cartouche" required>
+                                    <select class="custom-select d-block w-100" id="cartouche" name="cartouche" required>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -159,7 +160,7 @@
                                         <option value="4">4</option>
                                     </select>
                                     <div class="invalid-feedback">
-                                        Выберите количество предстоящих
+                                        Выберите картуш
                                     </div>
                                 </div>
                             </div>
@@ -173,38 +174,38 @@
                             <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-name">Имя</label>
-                                    <input type="text" class="form-control" id="cc-name" placeholder="Введите имя" required>
+                                    <input type="text" class="form-control" id="cc-name" name="cc-name" placeholder="Введите имя" required>
                                     <div class="invalid-feedback">
                                         Введите верное имя
                                     </div>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-phone">Телефон</label>
-                                    <input type="text" class="form-control" id="cc-phone" placeholder="Введите номер" required>
+                                    <input type="text" class="form-control" id="cc-phone" name="cc-phone" placeholder="Введите номер" required>
                                     <div class="invalid-feedback">
                                         Введите верный номер телефона
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="cc-email">Электронная почта</label>
-                                    <input type="text" class="form-control" id="cc-email" placeholder="Введите почту" required>
+                                    <input type="text" class="form-control" id="cc-email" name="cc-email" placeholder="Введите почту" required>
                                     <div class="invalid-feedback">
                                         Введите верный адрес электронной почты
                                     </div>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label for="cc-delivery">Способ доставки</label>
-                                    <div class="custom-control custom-radio" id="cc-delivery">
-                                        <input id="delivery-1" name="delivery-1" type="radio" class="custom-control-input" required>
-                                        <label class="custom-control-label" for="delivery-1">Самавывоз в офисе <a href="https://yandex.ru/maps/-/CBqyeGHyGA" target="_blank">метро Люблино, улица Судакова, дом 11</a> (<span class="text-success font-weight-bold">бесплатно</span>)</label>
+                                    <div class="custom-control custom-radio">
+                                        <input id="delivery-1" name="delivery" type="radio" value="1" required style="float: left; margin: 6px 5px 0 0; width: 15px; height: 15px;">
+                                        <label for="delivery-1">Самавывоз в офисе <a href="https://yandex.ru/maps/-/CBqyeGHyGA" target="_blank">метро Люблино, улица Судакова, дом 11</a> (<span class="text-success font-weight-bold">бесплатно</span>)</label>
                                     </div>
-                                    <div class="custom-control custom-radio" id="cc-delivery">
-                                        <input id="delivery-2" name="delivery-2" type="radio" class="custom-control-input" checked required>
-                                        <label class="custom-control-label" for="delivery-2">Курьером в пределах Москвы (<span class="text-success font-weight-bold">+150 руб</span>)</label>
+                                    <div class="custom-control custom-radio">
+                                        <input id="delivery-2" name="delivery" type="radio" value="2" required style="float: left; margin: 6px 5px 0 0; width: 15px; height: 15px;">
+                                        <label for="delivery-2">Курьером в пределах Москвы (<span class="text-success font-weight-bold">+150 руб</span>)</label>
                                     </div>
-                                    <div class="custom-control custom-radio" id="cc-delivery">
-                                        <input id="delivery-3" name="delivery-3" type="radio" class="custom-control-input" required>
-                                        <label class="custom-control-label" for="delivery-3">Транспортной компанией за пределы Москвы (<span class="text-success font-weight-bold">оплачивается отдельно</span>)</label>
+                                    <div class="custom-control custom-radio">
+                                        <input id="delivery-3" name="delivery" type="radio" value="3" required style="float: left; margin: 6px 5px 0 0; width: 15px; height: 15px;">
+                                        <label for="delivery-3">Транспортной компанией за пределы Москвы (<span class="text-success font-weight-bold">оплачивается отдельно</span>)</label>
                                     </div>
                                 </div>
                             </div>
@@ -215,6 +216,7 @@
                     <div class="card mb-3">
                         <div class="col-md-6 mb-3">
                             <p class="h3 py-3">Итого: <span id="price" class="text-success font-weight-bold">0</span> руб.</p>
+                            <input type="hidden" name="total-price" id="total-price" value="0">
                             <button class="btn btn-primary btn-lg" id="send-order" type="submit">Заказать</button>
                         </div>
                     </div>

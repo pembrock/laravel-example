@@ -13,7 +13,7 @@
                                 <div class="card-body">
                                     <p class="card-text">{!! $item->description !!}</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <button type="button" class="btn btn-sm btn-outline-success" dsta-id="{{ $item->id }}" data-toggle="modal" data-target="#modal-zakaz">Купить</button>
+                                        <button type="button" class="btn btn-sm btn-outline-success" data-id="{{ $item->id }}" data-toggle="modal" data-target="#modal-zakaz">Купить</button>
                                         @if ($item->is_availability == 1)
                                         <small class="text-success">В наличии</small>
                                         @else
