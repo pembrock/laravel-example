@@ -22,23 +22,24 @@
     <div class="modal-dialog" role="document">
         <form class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Заказ иконы "Св. Дмитрий Донской"</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Заказ иконы</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div class="row">
+                    <input type="hidden" name="gid" id="gid" value="0">
                     <div class="col-md-12 mb-3">
                         <label for="cc-name">Имя</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="Введите имя" required>
+                        <input type="text" class="form-control" id="modalName" name="modalName" placeholder="Введите имя" required>
                         <div class="invalid-feedback">
                             Введите верное имя
                         </div>
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="cc-phone">Телефон</label>
-                        <input type="text" class="form-control" id="cc-phone" placeholder="Введите номер" required>
+                        <input type="text" class="form-control" id="modalPhone" name="modalPhone" placeholder="Введите номер" required>
                         <div class="invalid-feedback">
                             Введите верный номер телефона
                         </div>
@@ -46,15 +47,15 @@
                     <div class="col-md-12 mb-3">
                         <label for="cc-delivery">Способ доставки</label>
                         <div class="custom-control custom-radio" id="cc-delivery">
-                            <input id="delivery-1" name="paymentMethod" type="radio" class="custom-control-input" required>
-                            <label class="custom-control-label" for="delivery-1">Самавывоз в <a href="https://yandex.ru/maps/-/CBqyeGHyGA" target="_blank">офисе</a> <span class="text-success">бесплатно</span></label>
+                            <input id="delivery-1" name="paymentMethod" type="radio" class="custom-control-input" value="1" required>
+                            <label class="custom-control-label" for="delivery-1">Самовывоз в <a href="https://yandex.ru/maps/-/CBqyeGHyGA" target="_blank">офисе</a> <span class="text-success">бесплатно</span></label>
                         </div>
                         <div class="custom-control custom-radio" id="cc-delivery">
-                            <input id="delivery-2" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                            <input id="delivery-2" name="paymentMethod" type="radio" class="custom-control-input" value="2" checked required>
                             <label class="custom-control-label" for="delivery-2">Курьером в пределах Москвы <span class="text-success">+150 руб</span></label>
                         </div>
                         <div class="custom-control custom-radio" id="cc-delivery">
-                            <input id="delivery-3" name="paymentMethod" type="radio" class="custom-control-input" required>
+                            <input id="delivery-3" name="paymentMethod" type="radio" class="custom-control-input" value="3" required>
                             <label class="custom-control-label" for="delivery-3">Транспортной компанией за пределы Москвы (оплачивается отдельно)</label>
                         </div>
                     </div>
@@ -62,7 +63,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-                <button type="button" class="btn btn-primary">Заказать</button>
+                <button type="button" class="btn btn-primary" id="send-modal-order">Заказать</button>
             </div>
         </form>
     </div>

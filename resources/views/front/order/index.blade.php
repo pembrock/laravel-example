@@ -174,14 +174,14 @@
                             <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-name">Имя</label>
-                                    <input type="text" class="form-control" id="cc-name" name="cc-name" placeholder="Введите имя" required>
+                                    <input type="text" class="form-control" id="name" name="cc-name" placeholder="Введите имя" required>
                                     <div class="invalid-feedback">
                                         Введите верное имя
                                     </div>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-phone">Телефон</label>
-                                    <input type="text" class="form-control" id="cc-phone" name="cc-phone" placeholder="Введите номер" required>
+                                    <input type="text" class="form-control" id="phone" name="cc-phone" placeholder="Введите номер" required>
                                     <div class="invalid-feedback">
                                         Введите верный номер телефона
                                     </div>
@@ -197,7 +197,7 @@
                                     <label for="cc-delivery">Способ доставки</label>
                                     <div class="custom-control custom-radio">
                                         <input id="delivery-1" name="delivery" type="radio" value="1" required style="float: left; margin: 6px 5px 0 0; width: 15px; height: 15px;">
-                                        <label for="delivery-1">Самавывоз в офисе <a href="https://yandex.ru/maps/-/CBqyeGHyGA" target="_blank">метро Люблино, улица Судакова, дом 11</a> (<span class="text-success font-weight-bold">бесплатно</span>)</label>
+                                        <label for="delivery-1">Самовывоз в офисе <a href="https://yandex.ru/maps/-/CBqyeGHyGA" target="_blank">метро Люблино, улица Судакова, дом 11</a> (<span class="text-success font-weight-bold">бесплатно</span>)</label>
                                     </div>
                                     <div class="custom-control custom-radio">
                                         <input id="delivery-2" name="delivery" type="radio" value="2" required style="float: left; margin: 6px 5px 0 0; width: 15px; height: 15px;">

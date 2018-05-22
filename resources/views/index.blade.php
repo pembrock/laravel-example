@@ -37,7 +37,7 @@
         @if (isset($shop))
         <div class="row mb-5">
             <div class="col-md-12">
-                <h3 class="mb-2"><a class="text-dark" href="#">Магазин</a></h3><hr>
+                <h3 class="mb-2"><a class="text-dark" href="{{ route('front.shop') }}">Магазин</a></h3><hr>
                 <div class="row">
                     @foreach ($shop as $good)
                     <div class="col-md-3">
@@ -45,9 +45,10 @@
                             <div class="card">
                                 <img class="card-img-top" src="{{ asset($good->img) }}" alt="Card image cap">
                                 <div class="card-body">
+                                    <p class="card-text">{!! $good->title !!}</p>
                                     <p class="card-text">{!! $good->description !!}</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-id="{{ $good->id }}" data-target="#modal-zakaz">Купить</button>
+                                        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-id="{{ $good->id }}" onclick="location.href='{{ route('front.shop') }}';">Купить</button>
                                         @if ($good->is_availability == 1)
                                             <small class="text-success">В наличии</small>
                                         @else

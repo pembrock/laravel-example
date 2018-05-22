@@ -33,9 +33,9 @@ var kuryer = 0;
 
 ////////////////////////////////////////////////////
 // значение площади, высоты и ширины по умолчанию //
-var area = 1;
-var cc_vysota = 1;
-var cc_shirina= 1;
+var area = 0;
+var cc_vysota = 0;
+var cc_shirina= 0;
 
 function getPrice() // Итоговая цена
 {
@@ -189,4 +189,17 @@ $(function() { // Остальные функции
 		getPrice();
 	});
 
+	$('#send-order').on('click', function(){
+        var vysota = $('#cc-vysota').val();
+        var shirina = $('#cc-shirina').val();
+        var area1 = $('#cc-area').val();
+        var name = $('#name').val();
+        var phone = $('#phone').val();
+        var email = $('#cc-email').val();
+
+        if (vysota == '' || vysota == 0 || shirina == '' || shirina == 0 || area1 == '' || area1 == 0 || name == '' || name == 0 || phone == '' || phone == 0 || email == '' || email == 0) {
+            alert('Заполнены не все поля');
+            return false;
+        }
+	});
 });
