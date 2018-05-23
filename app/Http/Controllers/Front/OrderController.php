@@ -70,8 +70,8 @@ class OrderController extends Controller
         $body = str_replace('{$content}', $content, $body);
 
         if (!empty($body)) {
-            //Mail::to('shitanger@mail.ru')->send(new OrderMail($body));
-            Mail::to('evd79@bk.ru')->send(new OrderMail($body));
+            Mail::to('shitanger@mail.ru')->send(new OrderMail($body));
+            //Mail::to('evd79@bk.ru')->send(new OrderMail($body));
             if (!$request->ajax()) {
                 return view('front.order.success');
             }

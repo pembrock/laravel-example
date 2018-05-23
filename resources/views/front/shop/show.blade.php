@@ -14,7 +14,7 @@
                                     <p class="card-text">{!! $item->title !!}</p>
                                     <p class="card-text">{!! $item->description !!}</p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <button type="button" class="btn btn-sm btn-outline-success" data-id="{{ $item->id }}" data-toggle="modal" data-target="#modal-zakaz" id="make-order">Купить</button>
+                                        <button type="button" class="btn btn-sm btn-outline-success make-order" data-id="{{ $item->id }}" data-toggle="modal" data-target="#modal-zakaz">Купить</button>
                                         @if ($item->is_availability == 1)
                                         <small class="text-success">В наличии</small>
                                         @else
@@ -33,8 +33,9 @@
 @stop
 @section('js')
     <script type="text/javascript">
-        $('#make-order').on('click', function(){
+        $('.make-order').on('click', function(){
             var gid = $(this).data('id');
+            console.log(gid);
             $('#gid').val(gid);
         });
 
@@ -49,18 +50,10 @@
                 $.ajax({
                     type: "POST",
                     url: "{!! route('front.sendEmail') !!}",
-                    data: {
-                        _token: "{{csrf_token()}}",
-                        modalOrder: 1,
-                        gid: gid,
-                        name: name,
-                        phone: phone,
-                        delivery: delivery
-                    },
+                    data: {_token: "{{csrf_token()}}", modalOrder: 1, gid: gid, name: name, phone: phone, delivery: delivery},
                     complete: function () {
                         alert("Заказ оформлен");
-                        $('#gid').val(0);
-                        $('#modal-zakaz').modal('hide');
+                        location.reload();
                     }
                 });
             }

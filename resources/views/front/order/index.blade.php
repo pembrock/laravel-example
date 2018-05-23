@@ -174,14 +174,14 @@
                             <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-name">Имя</label>
-                                    <input type="text" class="form-control" id="name" name="cc-name" placeholder="Введите имя" required>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Введите имя" required>
                                     <div class="invalid-feedback">
                                         Введите верное имя
                                     </div>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-phone">Телефон</label>
-                                    <input type="text" class="form-control" id="phone" name="cc-phone" placeholder="Введите номер" required>
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Введите номер" required>
                                     <div class="invalid-feedback">
                                         Введите верный номер телефона
                                     </div>
